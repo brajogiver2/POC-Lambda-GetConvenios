@@ -1,0 +1,68 @@
+openapi: 3.0.3
+info:
+  title: API de Convenios
+  version: 1.0.0
+  description: Servicio para consultar la lista de convenios disponibles. Expuesto via Lambda + API Gateway.
+
+paths:
+  /convenios:
+    get:
+      summary: Obtener lista de convenios
+      description: Retorna un arreglo de objetos tipo convenio, incluyendo nombre, URL de imagen, enlace y ciudad.
+      operationId: getConvenios
+      responses:
+        '200':
+          description: Operacion exitosa. Retorna un arreglo de convenios.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Convenio'
+        '500':
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    Convenio:
+      type: object
+      required:
+        - nombre
+        - url
+        - ciudad
+        - imagen
+      properties:
+        nombre:
+          type: string
+          description: Nombre completo del convenio.
+          example: Gimnasio BodyTech
+        url:
+          type: string
+          format: uri
+          description: Enlace web para acceder a los beneficios o informacion del convenio.
+          example: https://www.bodytech.com.co/convenios/empresa
+        ciudad:
+          type: string
+          description: Ciudad principal donde aplica el convenio.
+          example: Bogota
+        imagen:
+          type: string
+          format: uri
+          description: URL de la imagen representativa del convenio.
+          example: https://picsum.photos/seed/bodytech/400/300
+
+    Error:
+      type: object
+      properties:
+        codigo:
+          type: integer
+          description: Codigo de error HTTP.
+          example: 500
+        mensaje:
+          type: string
+          description: Descripcion del error.
+          example: Ocurrio un error al procesar la solicitud.

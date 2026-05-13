@@ -1,0 +1,48 @@
+{
+  "info": {
+    "name": "Convenios API",
+    "description": "Coleccion de APIs para el modulo Lambda Consulta Convenios del Proyecto Semillero",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Lambda Consulta Convenios",
+      "item": [
+        {
+          "name": "Obtener todos los convenios",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9000/convenios",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["convenios"]
+            },
+            "description": "Retorna la lista completa de 20 convenios disponibles."
+          },
+          "response": [
+            {
+              "name": "Ejemplo de respuesta exitosa",
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"nombre\": \"Gimnasio BodyTech\",\n    \"url\": \"https://www.bodytech.com.co/convenios/empresa\",\n    \"ciudad\": \"Bogota\",\n    \"imagen\": \"https://picsum.photos/seed/bodytech/400/300\"\n  }\n]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

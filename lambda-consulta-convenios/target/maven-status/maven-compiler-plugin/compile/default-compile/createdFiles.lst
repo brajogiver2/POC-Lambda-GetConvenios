@@ -1,0 +1,6 @@
+com/semillero/convenios/service/ConvenioService.class
+com/semillero/convenios/domain/ErrorResponse.class
+com/semillero/convenios/Handler.class
+com/semillero/convenios/infrastructure/HardcodedDataStore.class
+com/semillero/convenios/domain/Convenio.class
+com/semillero/convenios/infrastructure/LoggerAdapter.class
